@@ -1,0 +1,240 @@
+/* ===== 基本構造 ===== */
+body {
+  font-family: sans-serif;
+  background-color: #fffff0;
+  margin: 0;
+  padding: 0;
+}
+
+.header,
+.footer {
+  padding: 10px;
+  background-color: #fffff0;
+}
+
+footer {
+  margin-top: 20px;
+}
+
+/* ===== 新着情報・通知 ===== */
+.info-bar {
+  background-color: #555;
+  color: white;
+  padding: 8px;
+  font-weight: bold;
+}
+.notice {
+  background-color: #eee;
+  padding: 10px;
+  color: blue;
+}
+
+/* ===== ナビゲーションボタン ===== */
+.nav {
+  margin: 10px 0;
+  padding: 8px;
+}
+.nav button {
+  font-weight: bold;
+}
+
+/* ===== ラベル（セクションタイトル） ===== */
+.campus-title,
+.building-title,
+.campus-section,
+.home-label {
+  background-color: #2f3e55;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+}
+.home-label {
+  width: 120px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.home-label::after {
+  content: ' >';
+}
+
+/* ===== 情報ボックス ===== */
+.info-box {
+  border: 2px solid orange;
+  background-color: #fff;
+  padding: 10px;
+  min-height: 60px;
+  margin-top: 10px;
+}
+
+/* ===== トップボタン ===== */
+.top-buttons {
+  display: flex;
+  margin: 10px 0;
+}
+.top-buttons div {
+  width: 80px;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  color: #003366;
+}
+.pc {
+  background-color: #c8758f;
+}
+.time {
+  background-color: #fff778;
+  color: #000;
+}
+.logout {
+  background-color: #e58fc6;
+}
+
+/* ===== メイン ===== */
+.main {
+  padding: 10px;
+}
+
+/* ===== グリッドボタン ===== */
+.buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 110px); /* ← 3列×110px（ボタン幅） */
+  gap: 10px;
+  justify-content: start;
+}
+
+.button {
+  width: 110px;
+  height: 90px;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #000;
+}
+.info-muses {
+  background-color: #eebec6;
+}
+.履修 {
+  background-color: #f6dfc4;
+}
+.休講 {
+  background-color: #f6cce0;
+}
+.出欠 {
+  background-color: #c38aa8;
+}
+.アンケート {
+  background-color: #d3e1fb;
+}
+.キャリア {
+  background-color: #d4fadf;
+}
+.シラバス {
+  background-color: #ecfbd7;
+}
+.マップ {
+  background-color: #d2ddf0;
+}
+
+/* ===== キャンパス選択ボタン ===== */
+.campus-button {
+  background-color: #d9e3f0;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-size: 18px;
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+.campus-button:hover {
+  background-color: #c6d4e2;
+}
+
+/* ===== マップ系レイアウト ===== */
+.map-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  background-color: #eee;
+}
+.map-container {
+  position: relative;
+  display: inline-block;
+  background-color: #eee;
+  padding: 10px;
+  text-align: center;
+}
+.main-map {
+  width: 1200px;
+  height: auto;
+  display: block;
+}
+
+.map-icon {
+  position: absolute;
+  width: 40px;
+  height: auto;
+}
+.marker-dot {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  border-radius: 50%;
+  pointer-events: none; /* ← マーカーがクリックを邪魔しないように */
+  z-index: 100;
+}
+
+/* ===== 東館とかの ===== */
+
+/* 画像とボタンを横並びにする */
+.map-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px; /* 画像とボタンの間隔 */
+}
+
+/* 画像そのもののサイズ制御（任意） */
+.floor-map {
+  width: 100%;
+  max-width: 1000px; /* 必要に応じて調整 */
+  height: auto;
+}
+
+/* ボタンを縦に並べるエリア */
+.floor-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ボタンの見た目 */
+.floor-buttons button {
+  width: 60px;
+  height: 40px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  background-color: #d9e3f0;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+.floor-buttons button:hover {
+  background-color: #c6d4e2;
+}
+
+/* ===== 建物ボタン（透明リンク） ===== */
+.building-btn {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0); /* 完全透明 */
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>バス時刻表</title>
+    <link rel="stylesheet" href="css.css" />
+    <style>
+      .bus-wrapper {
+        overflow-x: auto;
+        background-color: #eee;
+        padding: 10px;
+        text-align: center;
+      }
+
+      .bus-wrapper img {
+        width: 1000px; /* 実寸サイズに応じて調整可能 */
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <img src="img/muses-logo.jpg" alt="MUSES" style="height: 40px; width: 200px" />
+      <div>武庫川　花子 さん</div>
+      <div class="top-buttons">
+        <div class="pc">PC版</div>
+        <div class="time">残り<br />約40分</div>
+        <div class="logout">ログアウト</div>
+      </div>
+
+      <div class="info-bar">📢 新着情報</div>
+      <div class="notice">📄 未読掲示が 3件 あります！</div>
+      <div class="nav">
+        <button onclick="location.href='index.html'">HOME＞</button>
+        <button onclick="location.href='campus-map.html'">キャンパス選択＞</button>
+        <button onclick="location.href='chuo-campus.html'">中央キャンパス＞</button>
+      </div>
+    </div>
+
+    <div class="campus-title">バス時刻表</div>
+
+    <div class="bus-wrapper">
+      <img src="img/bus_time.png" alt="バス時刻表" />
+    </div>
+
+    <div class="footer">
+      <div class="nav">
+        <button onclick="location.href='index.html'">HOME ＞</button>
+      </div>
+
+      <div><strong>Information</strong></div>
+      <div class="info-box">
+        <!-- 情報表示欄 -->
+      </div>
+    </div>
+  </body>
+</html>
