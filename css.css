@@ -238,3 +238,31 @@ footer {
   cursor: pointer;
   padding: 0;
 }
+
+/* ===== バス時刻表 ===== */
+.table-wrapper {
+  overflow-x: auto; /* ← 横スクロール可能に */
+  width: 100%; /* ← 親要素に合わせる */
+}
+
+table {
+  min-width: 800px;
+  border: 2px solid #888;
+  border-collapse: collapse;
+}
+th {
+  background-color: #003366;
+  color: white;
+  border: 2px solid #000000;
+}
+td {
+  background-color: #fefefe;
+  border: 2px solid #000000;
+  text-align: center;
+}
+
+/* 1列目（曜日）と2列目（時限）だけ中央寄せ */
+td:nth-child(3),
+td:nth-child(4) {
+  text-align: left;
+}

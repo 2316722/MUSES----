@@ -4,21 +4,6 @@
     <meta charset="UTF-8" />
     <title>バス時刻表</title>
     <link rel="stylesheet" href="css.css" />
-    <style>
-      .bus-wrapper {
-        overflow-x: auto;
-        background-color: #eee;
-        padding: 10px;
-        text-align: center;
-      }
-
-      .bus-wrapper img {
-        width: 1000px; /* 実寸サイズに応じて調整可能 */
-        height: auto;
-        display: block;
-        margin: 0 auto;
-      }
-    </style>
   </head>
   <body>
     <div class="header">
@@ -41,8 +26,24 @@
 
     <div class="campus-title">バス時刻表</div>
 
-    <div class="bus-wrapper">
-      <img src="img/bus_time.png" alt="バス時刻表" />
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>曜日</th>
+            <th>時限</th>
+            <th>往路</th>
+            <th>帰路</th>
+            <th>科目名</th>
+            <th>担当者</th>
+            <th>クラス</th>
+            <th>運航開始日</th>
+          </tr>
+        </thead>
+        <tbody id="bus-table-body">
+          <!-- JSONデータがここに埋め込まれる -->
+        </tbody>
+      </table>
     </div>
 
     <div class="footer">
@@ -57,3 +58,10 @@
     </div>
   </body>
 </html>
+
+<script type="module">
+  import { loadJSON, renderBusTable } from './common.js';
+  loadJSON('./bus.json')
+    .then((data) => renderBusTable(data, '#bus-table-body'))
+    .catch((err) => console.error('読み込みエラー:', err));
+</script>
