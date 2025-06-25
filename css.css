@@ -78,6 +78,7 @@ footer {
   font-weight: bold;
   color: #003366;
 }
+
 .pc {
   background-color: #c8758f;
 }
@@ -115,7 +116,7 @@ footer {
   cursor: pointer;
   border-radius: 6px;
   text-decoration: none;
-  color: #000;
+  color: #000000;
 }
 .info-muses {
   background-color: #eebec6;
