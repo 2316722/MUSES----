@@ -5,6 +5,22 @@
     <title>東館フロア図</title>
 
     <link rel="stylesheet" href="css.css" />
+
+    <script>
+      function changeFloor(floor) {
+        const image = document.getElementById('floorImage');
+        image.src = `img/floor_map_${floor}.png`;
+      }
+
+      function changeFloor(floor, clickedButton) {
+        document.getElementById('floorImage').src = `img/floor_map_${floor}.png`; // 画像を変更
+        document.querySelectorAll('.floor-button').forEach((btn) => {
+          // すべての階ボタンから active クラスを外す
+          btn.classList.remove('active-floor');
+        });
+        clickedButton.classList.add('active-floor'); // 今クリックされたボタンに active クラスを追加
+      }
+    </script>
   </head>
   <body>
     <div class="header">
@@ -30,16 +46,16 @@
     <div class="map-wrapper">
       <div class="map-container">
         <div class="map-content">
-          <img src="img/floor_map_6.png" alt="東館フロア図" class="floor-map" />
           <div class="floor-buttons">
-            <button>5F</button>
-            <button>4F</button>
-            <button>3F</button>
-            <button>2F</button>
-            <button>1F</button>
-            <button>B1</button>
-            <button>B2</button>
+            <button class="floor-button" onclick="changeFloor('5F',this)">5F</button>
+            <button class="floor-button" onclick="changeFloor('4F',this)">4F</button>
+            <button class="floor-button" onclick="changeFloor('3F',this)">3F</button>
+            <button class="floor-button" onclick="changeFloor('2F',this)">2F</button>
+            <button class="floor-button" onclick="changeFloor('1F',this)">1F</button>
+            <button class="floor-button" onclick="changeFloor('B1',this)">B1</button>
+            <button class="floor-button" onclick="changeFloor('B2',this)">B2</button>
           </div>
+          <img id="floorImage" src="img/floor_map_1F.png" alt="東館フロア図" class="floor-map" />
         </div>
       </div>
     </div>
