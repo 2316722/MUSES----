@@ -247,6 +247,7 @@ footer {
 
 table {
   min-width: 800px;
+  font-size: 13px;
   border: 2px solid #888;
   border-collapse: collapse;
 }
@@ -261,7 +262,6 @@ td {
   text-align: center;
 }
 
-/* 1列目（曜日）と2列目（時限）だけ中央寄せ */
 td:nth-child(3),
 td:nth-child(4) {
   text-align: left;
