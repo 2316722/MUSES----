@@ -78,6 +78,7 @@ footer {
   font-weight: bold;
   color: #003366;
 }
+
 .pc {
   background-color: #c8758f;
 }
@@ -115,7 +116,7 @@ footer {
   cursor: pointer;
   border-radius: 6px;
   text-decoration: none;
-  color: #000;
+  color: #000000;
 }
 .info-muses {
   background-color: #eebec6;
@@ -216,6 +217,10 @@ footer {
 }
 
 /* ボタンの見た目 */
+.floor-buttons .floor-button.active-floor {
+  background-color: #c6d4e2; /* ← デフォより明るめに */
+  color: #ffffff;
+}
 .floor-buttons button {
   width: 60px;
   height: 40px;
