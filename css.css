@@ -257,12 +257,12 @@ th {
   border: 2px solid #000000;
 }
 td {
-  background-color: #fefefe;
   border: 2px solid #000000;
   text-align: center;
 }
-
-td:nth-child(3),
-td:nth-child(4) {
-  text-align: left;
+tbody tr:nth-child(even) {
+  background-color: #f6f4f4; /* 薄いグレーなどがおすすめ */
+}
+tbody tr:nth-child(odd) {
+  background-color: #fefefe; /* 薄いグレーなどがおすすめ */
 }
