@@ -35,7 +35,7 @@
     });
   </script>
 
-  <body>
+  <body id="app">
     <div class="header">
       <img src="img/muses-logo.jpg" alt="MUSES" style="height: 40px; width: 200px" />
       <div>武庫川　花子 さん</div>
@@ -56,7 +56,15 @@
 
     <div class="campus-title">中央キャンパス 全体図</div>
 
-    <button @click="isShowIcons = !isShowIcons">アイコン表示</button>
+    <button @click="showAllIcons">アイコン表示</button>
+    <div v-if="isShowIcons">
+      <button @click="category = 'all'">🌐 全表示</button>
+      <button @click="toggleCategory('bus')">🚌 バス</button>
+      <button @click="toggleCategory('atm')">🏧 ATM</button>
+      <button @click="toggleCategory('eat')">🍴 食堂</button>
+      <button @click="toggleCategory('printer')">🖨 プリンタ</button>
+      <button @click="toggleCategory('water')">💧 ウォーター</button>
+    </div>
     <div class="map-wrapper">
       <div class="map-container">
         <img src="img/camps_map.jpg" id="map-image" class="main-map" alt="中央キャンパスマップ" />
@@ -70,27 +78,39 @@
         ></button>
 
         <!-- アイコンたち -->
-        <template v-if="isShowIcons">
-          <!-- バス -->
+
+        <div v-if="isShowIcons && (category === 'bus' || category === 'all')">
           <img src="img/bus.png" class="map-icon" style="top: 540px; left: 550px" />
-          <!-- ウォーターサーバー -->
+        </div>
+
+        <!-- ウォーターサーバー -->
+        <div v-if="isShowIcons && (category === 'water' || category === 'all')">
           <img src="img/water.png" class="map-icon" style="left: 224px; top: 630px" />
           <img src="img/water.png" class="map-icon" style="left: 300px; top: 720px" />
           <img src="img/water.png" class="map-icon" style="left: 640px; top: 557px" />
           <img src="img/water.png" class="map-icon" style="left: 371px; top: 310px" />
           <img src="img/water.png" class="map-icon" style="left: 406px; top: 310px" />
-          <!-- ATM -->
+        </div>
+
+        <!-- ATM -->
+        <div v-if="isShowIcons && (category === 'atm' || category === 'all')">
           <img src="img/ATM.png" class="map-icon" style="left: 605px; top: 557px" />
           <img src="img/ATM.png" class="map-icon" style="left: 575px; top: 495px" />
-          <!-- 食堂 -->
+        </div>
+
+        <!-- 食堂 -->
+        <div v-if="isShowIcons && (category === 'eat' || category === 'all')">
           <img src="img/eat.png" class="map-icon" style="left: 540px; top: 495px" />
           <img src="img/eat.png" class="map-icon" style="left: 366px; top: 428px" />
           <img src="img/eat.png" class="map-icon" style="left: 440px; top: 403px" />
           <img src="img/eat.png" class="map-icon" style="left: 560px; top: 619px" />
-          <!-- プリンター -->
+        </div>
+
+        <!-- プリンター -->
+        <div v-if="isShowIcons && (category === 'printer' || category === 'all')">
           <img src="img/printer.png" class="map-icon" style="left: 640px; top: 429px" />
           <img src="img/printer.png" class="map-icon" style="left: 401px; top: 428px" />
-        </template>
+        </div>
       </div>
     </div>
 
@@ -126,8 +146,25 @@
     <script src="https://unpkg.com/petite-vue"></script>
     <script>
       PetiteVue.createApp({
-        isShowIcons: false
-      }).mount();
+        isShowIcons: false,
+        category: '',
+
+        showAllIcons() {
+          if (this.isShowIcons) {
+            // すでに表示中なら非表示に戻す
+            this.isShowIcons = false;
+            this.category = '';
+          } else {
+            // 初回クリック：全表示＋ボタン表示
+            this.isShowIcons = true;
+            this.category = 'all';
+          }
+        },
+
+        toggleCategory(name) {
+          this.category = name;
+        }
+      }).mount('#app');
     </script>
   </body>
 </html>
