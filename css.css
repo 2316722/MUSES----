@@ -39,10 +39,7 @@ footer {
 }
 
 /* ===== ラベル（セクションタイトル） ===== */
-.campus-title,
-.building-title,
-.campus-section,
-.home-label {
+.section_title {
   background-color: #2f3e55;
   color: white;
   padding: 10px;
