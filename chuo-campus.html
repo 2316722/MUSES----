@@ -119,6 +119,31 @@
 
     <script src="https://unpkg.com/petite-vue"></script>
     <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const map = document.getElementById('map-image');
+        const container = map.parentElement;
+
+        map.addEventListener('click', function (e) {
+          const rect = map.getBoundingClientRect();
+          const x = Math.round(e.clientX - rect.left);
+          const y = Math.round(e.clientY - rect.top);
+
+          console.log(`クリック位置: left: ${x}px; top: ${y}px`);
+
+          // 既存のマーカーを削除（あれば）
+          const oldMarker = document.querySelector('.marker-dot');
+          if (oldMarker) oldMarker.remove();
+
+          // 新しいマーカーを作成
+          const marker = document.createElement('div');
+          marker.className = 'marker-dot';
+          marker.style.left = `${x - 5}px`; // 中心を合わせるために-5
+          marker.style.top = `${y - 5}px`;
+
+          container.appendChild(marker);
+        });
+      });
+
       PetiteVue.createApp({
         isShowIcons: false,
         category: '',
